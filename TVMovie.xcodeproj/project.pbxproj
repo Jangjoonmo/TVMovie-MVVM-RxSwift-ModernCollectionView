@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9422B0152AB710160067CED2 /* TVNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B0142AB710160067CED2 /* TVNetwork.swift */; };
+		9422B0172AB710BC0067CED2 /* MovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B0162AB710BC0067CED2 /* MovieNetwork.swift */; };
+		9422B0192AB711660067CED2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B0182AB711660067CED2 /* NetworkProvider.swift */; };
 		947FB8E22AB36B73001315D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E12AB36B73001315D1 /* AppDelegate.swift */; };
 		947FB8E42AB36B73001315D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E32AB36B73001315D1 /* SceneDelegate.swift */; };
 		947FB8E62AB36B73001315D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E52AB36B73001315D1 /* ViewController.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9422B0142AB710160067CED2 /* TVNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVNetwork.swift; sourceTree = "<group>"; };
+		9422B0162AB710BC0067CED2 /* MovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetwork.swift; sourceTree = "<group>"; };
+		9422B0182AB711660067CED2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		947FB8DE2AB36B73001315D1 /* TVMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947FB8E12AB36B73001315D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		947FB8E32AB36B73001315D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,9 @@
 				947FB9072AB36FB5001315D1 /* Constant.swift */,
 				947FB9092AB70844001315D1 /* Entity */,
 				947FB9102AB70DD9001315D1 /* Network.swift */,
+				9422B0142AB710160067CED2 /* TVNetwork.swift */,
+				9422B0162AB710BC0067CED2 /* MovieNetwork.swift */,
+				9422B0182AB711660067CED2 /* NetworkProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -200,7 +209,10 @@
 				947FB8E22AB36B73001315D1 /* AppDelegate.swift in Sources */,
 				947FB90F2AB70CFE001315D1 /* MovieResult.swift in Sources */,
 				947FB9082AB36FB5001315D1 /* Constant.swift in Sources */,
+				9422B0192AB711660067CED2 /* NetworkProvider.swift in Sources */,
+				9422B0172AB710BC0067CED2 /* MovieNetwork.swift in Sources */,
 				947FB9112AB70DD9001315D1 /* Network.swift in Sources */,
+				9422B0152AB710160067CED2 /* TVNetwork.swift in Sources */,
 				947FB8EC2AB36B73001315D1 /* TVMovie.xcdatamodeld in Sources */,
 				947FB8E42AB36B73001315D1 /* SceneDelegate.swift in Sources */,
 				947FB90B2AB70850001315D1 /* TV.swift in Sources */,
