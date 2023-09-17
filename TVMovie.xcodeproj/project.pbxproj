@@ -21,6 +21,8 @@
 		947FB9052AB36DCE001315D1 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 947FB9042AB36DCE001315D1 /* RxAlamofire */; };
 		947FB9082AB36FB5001315D1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB9072AB36FB5001315D1 /* Constant.swift */; };
 		947FB90B2AB70850001315D1 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB90A2AB70850001315D1 /* TV.swift */; };
+		947FB90D2AB70C28001315D1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB90C2AB70C28001315D1 /* Movie.swift */; };
+		947FB90F2AB70CFE001315D1 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB90E2AB70CFE001315D1 /* MovieResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		947FB8F22AB36B74001315D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		947FB9072AB36FB5001315D1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		947FB90A2AB70850001315D1 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		947FB90C2AB70C28001315D1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		947FB90E2AB70CFE001315D1 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				947FB90A2AB70850001315D1 /* TV.swift */,
+				947FB90C2AB70C28001315D1 /* Movie.swift */,
+				947FB90E2AB70CFE001315D1 /* MovieResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -186,8 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947FB90D2AB70C28001315D1 /* Movie.swift in Sources */,
 				947FB8E62AB36B73001315D1 /* ViewController.swift in Sources */,
 				947FB8E22AB36B73001315D1 /* AppDelegate.swift in Sources */,
+				947FB90F2AB70CFE001315D1 /* MovieResult.swift in Sources */,
 				947FB9082AB36FB5001315D1 /* Constant.swift in Sources */,
 				947FB8EC2AB36B73001315D1 /* TVMovie.xcdatamodeld in Sources */,
 				947FB8E42AB36B73001315D1 /* SceneDelegate.swift in Sources */,
