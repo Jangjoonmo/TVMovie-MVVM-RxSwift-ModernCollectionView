@@ -12,6 +12,7 @@
 		9422B0192AB711660067CED2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B0182AB711660067CED2 /* NetworkProvider.swift */; };
 		9422B01B2AB712900067CED2 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B01A2AB712900067CED2 /* ButtonView.swift */; };
 		9422B01D2AB7407C0067CED2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B01C2AB7407C0067CED2 /* ViewModel.swift */; };
+		9422B0202AB9B8920067CED2 /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9422B01F2AB9B8920067CED2 /* NormalCollectionViewCell.swift */; };
 		947FB8E22AB36B73001315D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E12AB36B73001315D1 /* AppDelegate.swift */; };
 		947FB8E42AB36B73001315D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E32AB36B73001315D1 /* SceneDelegate.swift */; };
 		947FB8E62AB36B73001315D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FB8E52AB36B73001315D1 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		9422B0182AB711660067CED2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		9422B01A2AB712900067CED2 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9422B01C2AB7407C0067CED2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9422B01F2AB9B8920067CED2 /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
 		947FB8DE2AB36B73001315D1 /* TVMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947FB8E12AB36B73001315D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		947FB8E32AB36B73001315D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9422B01E2AB9B8820067CED2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9422B01F2AB9B8920067CED2 /* NormalCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		947FB8D52AB36B73001315D1 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 				947FB8E12AB36B73001315D1 /* AppDelegate.swift */,
 				947FB8E32AB36B73001315D1 /* SceneDelegate.swift */,
 				947FB8E52AB36B73001315D1 /* ViewController.swift */,
+				9422B01E2AB9B8820067CED2 /* Cells */,
 				9422B01C2AB7407C0067CED2 /* ViewModel.swift */,
 				9422B01A2AB712900067CED2 /* ButtonView.swift */,
 				947FB9062AB36FA8001315D1 /* Network */,
@@ -217,6 +228,7 @@
 				947FB9082AB36FB5001315D1 /* Constant.swift in Sources */,
 				9422B0192AB711660067CED2 /* NetworkProvider.swift in Sources */,
 				9422B01D2AB7407C0067CED2 /* ViewModel.swift in Sources */,
+				9422B0202AB9B8920067CED2 /* NormalCollectionViewCell.swift in Sources */,
 				9422B0172AB710BC0067CED2 /* MovieNetwork.swift in Sources */,
 				947FB9112AB70DD9001315D1 /* Network.swift in Sources */,
 				9422B0152AB710160067CED2 /* TVNetwork.swift in Sources */,
