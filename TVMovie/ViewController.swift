@@ -12,10 +12,15 @@ import RxSwift
 //레이아웃
 enum Section: Hashable{
     case double
+    case banner
+    case horizontal(String)
+    case vertical(String)
 }
 //셀
 enum Item: Hashable {
-    case normal(TV)
+    case normal(Content) //Movie
+    case bigImage(Movie)
+    case list(Movie)
 }
 
 class ViewController: UIViewController {
@@ -66,8 +71,8 @@ class ViewController: UIViewController {
         
         output.tvList.bind { [weak self] tvList in
             print("TV List: \(tvList)")
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-            let items = tvList.map { Item.normal($0)}
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Content>()
+            let items = tvList.map { Item.normal(Content(tv: $0))}
             let section = Section.double
             snapshot.appendSections([section])
             snapshot.appendItems(items, toSection: section)
@@ -113,9 +118,9 @@ class ViewController: UIViewController {
     private func setDatasource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             switch item {
-            case .normal(let tvData):
+            case .normal(let contentData):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
-                cell?.configure(title: tvData.name, review: tvData.vote, desc: tvData.overview, imageURL: tvData.posterURL)
+                cell?.configure(title: contentData.title, review: contentData.vote, desc: contentData.overview, imageURL: contentData.posterURL)
                 return cell
             }
         })
