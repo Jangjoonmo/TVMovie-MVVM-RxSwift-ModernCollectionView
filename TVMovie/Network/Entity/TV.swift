@@ -37,7 +37,7 @@ struct TV: Decodable, Hashable{
         posterURL = "https://image.tmdb.org/t/p/w500\(path)"
         let voteAverage = try container.decode(Float.self, forKey: .voteAverage)
         let voteCount = try container.decode(Int.self, forKey: .voteCount)
-        vote = "\(voteAverage) (\(voteCount)"
+        vote = "\(voteAverage) (\(voteCount))"
         firstAirDate = try container.decode(String.self, forKey: .firstAirDate)
     }
 }

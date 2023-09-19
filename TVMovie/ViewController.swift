@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setDatasource()
         bindViewModel()
         bindView()
         
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
     private func setUI() {
         self.view.addSubview(buttonView)
         self.view.addSubview(collectionView)
-        collectionView.backgroundColor = .blue
         
         buttonView.snp.makeConstraints{
             $0.top.horizontalEdges.equalTo(self.view.safeAreaLayoutGuide)
@@ -64,8 +64,14 @@ class ViewController: UIViewController {
         
         let output = viewModel.transform(input: input)
         
-        output.tvList.bind { tvList in
+        output.tvList.bind { [weak self] tvList in
             print("TV List: \(tvList)")
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+            let items = tvList.map { Item.normal($0)}
+            let section = Section.double
+            snapshot.appendSections([section])
+            snapshot.appendItems(items, toSection: section)
+            self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag)  //바인딩 해제
         
         output.movieResult.bind { movieList in
