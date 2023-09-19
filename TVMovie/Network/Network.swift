@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxAlamofire
+
 class Network<T:Decodable> {
     
     private let endpoint: String

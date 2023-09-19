@@ -28,7 +28,7 @@ class ViewModel {
     
     struct Output {
         let tvList: Observable<[TV]>
-//        let movieList: Observable<MovieResult>
+        let movieResult: Observable<MovieResult>
     }
     
     func transform(input: Input) -> Output {
@@ -43,10 +43,15 @@ class ViewModel {
             
         }
         
-        input.movieTrigger.bind {
-            print("Movie Trigger")
-        }.disposed(by: disposeBag)
+        let movieResult = input.movieTrigger.flatMapLatest{ [unowned self] _ -> Observable<MovieResult> in
+            // combineLatest - 여러가지를 모두 가져와서 합칠 경우
+            //Observable 1, 2, 3을 합쳐서 하나의 Observable로 바꾸고 싶다면?
+            return Observable.combineLatest(self.movieNetwork.getUpcomingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) { upcoming, popular, nowPlaying -> MovieResult in
+                return MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying)
+            }
+            
+        }
         
-        return Output(tvList: tvList )
+        return Output(tvList: tvList, movieResult: movieResult )
     }
 }

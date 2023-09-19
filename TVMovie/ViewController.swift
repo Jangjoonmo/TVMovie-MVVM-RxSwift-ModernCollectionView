@@ -9,6 +9,15 @@ import UIKit
 import SnapKit
 import RxSwift
 
+//레이아웃
+enum Section: Hashable{
+    case double
+}
+//셀
+enum Item: Hashable {
+    case normal(TV)
+}
+
 class ViewController: UIViewController {
 
     let disposeBag = DisposeBag()
@@ -25,6 +34,7 @@ class ViewController: UIViewController {
         bindViewModel()
         bindView()
         
+        tvTrigger.onNext(())
     }
 
     private func setUI() {
@@ -52,9 +62,9 @@ class ViewController: UIViewController {
             print("TV List: \(tvList)")
         }.disposed(by: disposeBag)  //바인딩 해제
         
-//        output.movieList.bind { movieList in
-//            print(movieList)
-//        }.disposed(by: disposeBag)
+        output.movieResult.bind { movieList in
+            print("Movie List: \(movieList)")
+        }.disposed(by: disposeBag)
     }
     
     private func bindView() {
