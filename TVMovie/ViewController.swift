@@ -21,6 +21,7 @@ enum Item: Hashable {
 class ViewController: UIViewController {
 
     let disposeBag = DisposeBag()
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
     let buttonView = ButtonView()
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout())
@@ -101,6 +102,17 @@ class ViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         
         return section
+    }
+    
+    private func setDatasource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            switch item {
+            case .normal(let tvData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
+                cell?.configure(title: tvData.name, review: tvData.vote, desc: tvData.overview, imageURL: tvData.posterURL)
+                return cell
+            }
+        })
     }
 }
 
