@@ -22,7 +22,12 @@ class ViewController: UIViewController {
 
     let disposeBag = DisposeBag()
     let buttonView = ButtonView()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout())
+        collectionView.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: NormalCollectionViewCell.id)
+        return collectionView
+    }()
+
     let viewModel = ViewModel()
     // Subject - 이벤트를 발생 시키면서 Observable 형태도 되는거
     let tvTrigger = PublishSubject<Void>()
@@ -75,6 +80,27 @@ class ViewController: UIViewController {
         buttonView.movieButton.rx.tap.bind { [weak self] in
             self?.movieTrigger.onNext(Void())
         }.disposed(by: disposeBag)
+    }
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 14
+        return UICollectionViewCompositionalLayout(sectionProvider: {[weak self] sectionIndex, _ in
+            return self?.createDoubleSection()
+        }, configuration: config)
+    }
+    
+    private func createDoubleSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(320))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
     }
 }
 
