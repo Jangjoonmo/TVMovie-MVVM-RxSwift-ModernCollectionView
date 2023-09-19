@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         
         output.tvList.bind { [weak self] tvList in
             print("TV List: \(tvList)")
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Content>()
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
             let items = tvList.map { Item.normal(Content(tv: $0))}
             let section = Section.double
             snapshot.appendSections([section])
@@ -83,8 +83,24 @@ class ViewController: UIViewController {
             self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag)  //바인딩 해제
         
-        output.movieResult.bind { movieList in
-            print("Movie List: \(movieList)")
+        output.movieResult.bind { [weak self]movieResult in
+            print("Movie Result: \(movieResult)")
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+            let bigImageList = movieResult.nowPlaying.results.map{ movie in
+                return Item.bigImage(movie)
+            }
+            let bannerSection = Section.banner
+            snapshot.appendSections([bannerSection])
+            snapshot.appendItems(bigImageList, toSection: bannerSection)
+            
+            let horizontalSection = Section.horizontal("Popluar Movies")
+            let normalList = movieResult.popular.results.map { Movie in
+                return Item.normal(Content(movie: Movie))
+            }
+            snapshot.appendSections([horizontalSection])
+            snapshot.appendItems(normalList, toSection: horizontalSection)
+            
+            self?.dataSource?.apply(snapshot)
         }.disposed(by: disposeBag)
     }
     
@@ -120,7 +136,7 @@ class ViewController: UIViewController {
     private func createHorizontalSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(320))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
@@ -160,6 +176,15 @@ class ViewController: UIViewController {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
                 cell?.configure(title: contentData.title, review: contentData.vote, desc: contentData.overview, imageURL: contentData.posterURL)
                 return cell
+            case .bigImage(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigImageCollectionViewCell.id, for: indexPath) as? BigImageCollectionViewCell
+                cell?.configure(title: movieData.title, overview: movieData.overview, review: movieData.vote, url: movieData.posterURL)
+                return cell
+            case .list(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigImageCollectionViewCell.id, for: indexPath) as? BigImageCollectionViewCell
+                cell?.configure(title: movieData.title, overview: movieData.overview, review: movieData.vote, url: movieData.posterURL)
+                return cell
+                
             }
         })
     }

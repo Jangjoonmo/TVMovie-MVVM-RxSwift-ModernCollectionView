@@ -50,7 +50,7 @@ final class ListCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public configure(title: String, releaseDate: String, url: String) {
+    public func configure(title: String, releaseDate: String, url: String) {
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
         image.kf.setImage(with: URL(string: url))
